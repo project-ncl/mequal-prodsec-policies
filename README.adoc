@@ -1,0 +1,445 @@
+== Mequal Policies for Product Security
+
+This is where the written definitions for the policies exist.
+
+== CycloneDX
+
+== 1. CDX_1_6_PLUS
+
+=== Policy Title
+
+Teams should use CycloneDX 1.6 and above to use key features
+
+=== Policy Description
+
+Teams who are generating am SBOM will benefit from using CycloneDX version 1.6 and above in order to access key features that make it much easier to represent certain information, such as multiple CPEs and PURLs. This policy gives informational feedback on the advantages of using version CycloneDX 1.6 and above.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_sbom_is_cdx_1_6_and_above
+
+*Title:* SBOM is CycloneDX 1.6 and Above
+
+*Description:* SBOM is CycloneDX 1.6 and above in order to ensure support of potentially important features.
+
+*Feedback:* 
+
+[GUIDE] CYCLONEDX: The CycloneDX version of this SBOM may not support important features that may be required for complete and accurate manifesting. In order to properly represent multiple PURLs and multiple CPEs of an SBOM, CycloneDX version 1.6 and above is needed.
+
+
+
+
+== 2. CDX_MAINCOMPONENTDUP
+
+=== Policy Title
+
+Duplicate the main .metadata.component into the .components[] array
+
+=== Policy Description
+
+Teams who are generating CycloneDX SBOMs for a specific product should duplicate the main component found in the .metadata.component into the .components[] array to ensure the participation of the main component into the hierarchy.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_top_metadata_purl_found_in_components
+
+*Title:* SBOM .metadata.component purl exists in .components
+
+*Description:* For a given CycloneDX SBOM, the purl of the main component (.metadata.component.purl) exists inside of the .components array.
+
+*Feedback:*
+
+[GUIDE] CYCLONEDX: The main component purl (.metadata.component) has not been found within .components[] array of the SBOM. It is advised to have this component duplicated into the .components[] array helps ensure its participation in the component hierarchy if needed, for example, inside of a nested component structure. 
+
+This is important for ingestion into Trustify v1 (Trustification) so the main component can also be ingested as a "package"
+
+Below is how the main purl can be duplicated into components:
+
+[code, json]
+----
+{
+	"bomFormat": "CycloneDX",
+	"metadata": {
+        "component": {
+			"name": "test",
+			"purl": "main-purl",
+		}
+    },
+	"components": [
+		{"bom-ref": "test", "purl": "main-purl"},
+		{"bom-ref": "test2", "purl": "test2"},
+	],
+}
+----
+
+
+
+
+
+== 3. CDX_SBOMTYPE
+
+=== Policy Title
+
+Specify the SBOM Type in CycloneDX
+
+=== Policy Description
+
+Teams who are generating an SBOM should define the type of SBOM it is. This can be done using the .metadata.lifecycles field. This policy ensures that different policies can be applied to different SBOM types. This also gives Mequal the option the opportunity to do SBOM evaluation in specific specialized contexts in the future.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_metadata_lifecycles_exists
+
+*Title:* CycloneDX Metadata.lifecycles Field Exists
+
+*Description:* In a CycloneDX SBOM, the .metadata.lifecycles field exists.
+
+*Feedback:* 
+
+[GUIDE] The .metadata.lifecycles field has not been found in this SBOM. Defining an SBOM type helps Mequal evaluate SBOMs in different specialized contexts in the future.
+
+=== 2. cdx_metadata_lifecycles_is_valid (TODO)
+
+*Title:* CycloneDX Metadata.lifecycles Field is Valid
+
+*Description:* If a .metadata.lifecycles field IS defined in an SBOM, make sure it is correctly defined.
+
+*Feedback:* 
+
+[DENY] <feedback-given-on-rule-violation>
+
+
+
+
+
+
+== 4. CDX_CPE
+
+=== Policy Title
+
+CycloneDX SBOM has a Main CPE
+
+=== Policy Description
+
+An SBOM can have a CPE field that ties it a product.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_main_component_has_cpe
+
+*Title:* CycloneDX SBOM Has CPE
+
+*Description:* The main component of a CycloneDX SBOM has a CPE.
+
+*Feedback:* 
+
+[GUIDE] TIP: If this a product-level SBOM, it is advised to define a CPE in .metadata.component.cpe field to directly tie it to that product. If this is a component-level SBOM please disregard this tip.
+
+
+
+
+
+
+
+
+== 5. CDX_MULTICPE
+
+=== Policy Title
+
+CycloneDX SBOM Contains Multiple CPEs
+
+=== Policy Description
+
+A CycloneDX SBOM that is version 1.6 and above has the ability to represent multiple CPEs using the metadata.component.cpe field for the main CPE, and the metadata.component.evidence.identity field for its aliases.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+. SBOM is a CycloneDX SBOM with version 1.6 and above
+. SBOM contains a CPE in .metadata.component.cpe field
+
+=== Rules
+
+=== 1. cdx_contains_multicpe_example
+
+*Title:* CycloneDX SBOM Uses Multi-CPE
+
+*Description:* A given SBOM has a component within it that makes use of the evidence.identity field to define additional CPEs.
+
+*Feedback:* 
+
+[GUIDE] TIP: This SBOM includes a main CPE and has been found to be CycloneDX v1.6 and above and supports representing multiple CPEs using the .cpe field as the main CPE and the .evidence.identity field to provide additional aliases of it. This method of CPE representation is also supported for Trustify SBOM ingestion.
+
+
+Below is how multiple CPEs can be denoted for ingestion into Trustify:
+
+[code, json]
+----
+"components": [ 
+      { "bom-ref": packageA.bom_ref 
+        packageA...
+        "cpe": main_cpe 
+        "evidence": {
+             "identity": [ 
+                 {"field": "cpe",
+                  "concludedValue": cpe_alias}, ... ] }, ... ]
+----
+
+
+== 6. CDX_MULTIPURL
+
+=== Policy Title
+
+CycloneDX SBOM Contains Multiple PURLs
+
+=== Policy Description
+
+A CycloneDX SBOM that is version 1.6 and above has the ability to represent multiple PURLs using .purl field for the main PURL, and the .evidence.identity field for its aliases.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+. SBOM is a CycloneDX SBOM with version 1.6 and above
+
+=== Rules
+
+=== 1. cdx_contains_multicpe_example
+
+*Title:* CycloneDX SBOM Uses Multi-PURL
+
+*Description:* A given SBOM has a component within it that makes use of the evidence.identity field to define additional PURLs.
+
+*Feedback:* 
+
+[GUIDE] TIP: This SBOM has been found to be CycloneDX v1.6 and above, and supports representing multiple PURLs using the .purl field as the main PURL and the .evidence.identity field to provide additional aliases of it. This method of PURL representation is also supported for Trustify SBOM ingestion.
+
+Below is how multiple PURLs can be denoted for ingestion into Trustify:
+
+[code, json]
+----
+"components": [ 
+   { "bom-ref": packageA.bom_ref packageA...
+     "purl": main_purl.
+     "evidence": { 
+         "identity": [ 
+            {"field": "purl", 
+             "concludedValue": purl_alias}
+              , ... ] 
+      }, ... ]
+----
+
+
+
+
+
+
+
+== 7. CDX_EXTERNALREFS
+
+=== Policy Title
+
+CycloneDX SBOM Makes Valid External References to other SBOMs
+
+=== Policy Description
+
+When teams produce an SBOM for their product, they will most likely NOT be putting all transitive layers into a single SBOM. This policy would ensure that the references to external SBOMs made are defined using the correct fields and are syntactically correct. Making sure that these references are correctly written is crucial for the relationships to accurately make it into TPA.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_all_sbom_exrefs_valid_bomlink
+
+*Title:* All Bomlink SBOM References are Valid
+
+*Description:* Given an SBOM, ensure that all Bomlink external references to other SBOMs are valid in format.
+
+*Feedback:* 
+
+[DENY] An invalid Bomlink external reference to an SBOM has been found in component "(component-purl)"
+
+
+=== 2. cdx_all_sbom_exrefs_valid_bomuri
+
+*Title:* All bom uri SBOM References are Valid
+
+*Description:* Given an SBOM, ensure that all SBOM external references to other SBOMs done using the bom uri field are valid in format.
+
+*Feedback:* 
+
+[DENY] An invalid bom uri external reference to an SBOM has been found in component "(component-purl)"
+
+
+=== 3. cdx_no_sbom_exrefs_found
+
+*Title:* No External SBOM References Found
+
+*Description:* Given an SBOM, there has not been any external references identified.
+
+*Feedback:* 
+
+[GUIDE] TIP: No external SBOM references have been found in this SBOM. Referencing other SBOMs are possible with the bom uri field, or using the Bomlink method if SBOM is CycloneDX 1.5 or higher.
+
+
+
+
+
+
+
+== 8. CDX_PROVIDES
+
+=== Policy Title
+
+CycloneDX SBOM Uses Provides Field
+
+=== Policy Description
+
+Using the dependencies section of a CycloneDX SBOM, the provides field can be used to specify what specification a certain component implements, or additionally can represent source-to-binary relationships.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_provides_field_is_used
+
+*Title:* Provides Field is Used in CycloneDX SBOM
+
+*Description:* In a given CycloneDX SBOM, the provides relationship is utilized.
+
+*Feedback:* 
+----
+[GUIDE] TIP: In this SBOM, the provides relationships have not been utilized. This field can be used to specify what specification a certain component implements. If SBOM is to be ingested by Trustify, the provides field is used to specify source-to-binary relationships.
+----
+
+*Feedback Code Example:*
+
+Below is how source-to-binary relationships can be represented for ingestion into Trustify:
+
+[code, json]
+----
+"components": [ 
+     {packageA:srpm}, {packageB:binary_rpm}, ... ],
+ "dependencies": [ 
+     { "ref": packageA.bom_ref, 
+        "provides": [packageB.bom_ref, ] } ]
+
+----
+
+
+
+
+
+
+== 9. CDX_VARIANTS
+
+=== Policy Title
+
+CycloneDX SBOM Uses Variants Field
+
+=== Policy Description
+
+Using the pedigree.variants field of a component inside of a CycloneDX SBOM, teams can represent the relationship of the image index container to their respective architectural variants in the CycloneDX SBOMs they generate. Supported by Trustify.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_variants_field_is_used
+
+*Title:* Variants Field is Used in CycloneDX SBOM
+
+*Description:* In a given CycloneDX SBOM, there are components where the pedigree.variants relationship is utilized.
+
+*Feedback:* 
+----
+[GUIDE] TIP: In this SBOM, the pedigree.variants relationships have not been utilized. This field can represent the relationship of the image index container to their respective architectural variants in the CycloneDX SBOMs they generate. This field is supported for Trustify SBOM ingestion.
+----
+
+*Feedback Code Example:*
+
+Below is how image index to arch image variant relationships can be denoted for ingestion into Trustify:
+
+[code, json]
+----
+"components": [ { image_index... 
+     "pedigree": 
+         { "variants": [ {image_x86-64} ] } 
+} ]
+----
+
+
+
+
+
+
+== 10. CDX_ANCESTORS
+
+=== Policy Title
+
+CycloneDX SBOM Uses Ancestors Field
+
+=== Policy Description
+
+Using the pedigree.ancestors field of a component inside of a CycloneDX SBOM, teams can denote the upstream of a component in the SBOMs they generate. Supported by Trustify.
+
+=== Prerequisites
+
+. SBOM is a CycloneDX SBOM
+
+=== Rules
+
+=== 1. cdx_ancestors_field_is_used
+
+*Title:* Ancestors Field is Used in CycloneDX SBOM
+
+*Description:* In a given CycloneDX SBOM, there are components where the pedigree.ancestors relationship is utilized.
+
+*Feedback:* 
+----
+[GUIDE] TIP: In this SBOM, the pedigree.ancestors relationships have not been utilized. This field can denote the upstream of a component. This field is supported for Trustify SBOM ingestion.
+----
+
+*Feedback Code Example:*
+
+Below is how upstream component relationships can be denoted for ingestion into Trustify:
+
+[code, json]
+----
+"components": [ { upstream_component, 
+  packageA... 
+     "pedigree": 
+         { "ancestors": [ {upstream_component} ]} 
+} ]
+----
+
+
+
+
+
+
+
+
+
+== SPDX (TODO)

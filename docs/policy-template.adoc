@@ -1,0 +1,42 @@
+== 1. <policy-id>
+
+=== Title
+
+<policy-title>
+
+=== Description
+
+<policy-description>
+
+=== Prerequisites
+
+. <policy-prerequisite-1>
+. <policy-prerequisite-2>
+
+...
+
+=== Rules
+
+=== 1. <policy-rule-id-1>
+
+*Title:* <rule-title>
+
+*Description:* <rule-description>
+
+*Feedback:* 
+
+[<feedback-category>] <feedback-given-on-rule-violation>
+
+
+=== 2. <policy-rule-id-2>
+
+*Title:* <rule-title>
+
+*Description:* <rule-description>
+
+*Feedback:* 
+
+[<feedback-category>] <feedback-given-on-rule-violation>
+
+...
+
