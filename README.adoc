@@ -28,7 +28,7 @@ Teams who are generating am SBOM will benefit from using CycloneDX version 1.6 a
 
 *Feedback:* 
 
-[GUIDE] CYCLONEDX: The CycloneDX version of this SBOM may not support important features that may be required for complete and accurate manifesting. In order to properly represent multiple PURLs and multiple CPEs of an SBOM, CycloneDX version 1.6 and above is needed.
+[GUIDE] The CycloneDX version of this SBOM may not support important features that may be required for complete and accurate manifesting. In order to properly represent multiple PURLs and multiple CPEs of an SBOM, CycloneDX version 1.6 and above is needed.
 
 
 
@@ -219,7 +219,7 @@ A CycloneDX SBOM that is version 1.6 and above has the ability to represent mult
 
 === Rules
 
-=== 1. cdx_contains_multicpe_example
+=== 1. cdx_contains_multipurl_example
 
 *Title:* CycloneDX SBOM Uses Multi-PURL
 
@@ -277,22 +277,22 @@ When teams produce an SBOM for their product, they will most likely NOT be putti
 [DENY] An invalid Bomlink external reference to an SBOM has been found in component "(component-purl)"
 
 
-=== 2. cdx_all_sbom_exrefs_valid_bomuri
+=== 2. cdx_all_sbom_exrefs_nonempty_bomuri
 
-*Title:* All bom uri SBOM References are Valid
+*Title:* All bom uri SBOM References are non-empty
 
-*Description:* Given an SBOM, ensure that all SBOM external references to other SBOMs done using the bom uri field are valid in format.
+*Description:* Given an SBOM, ensure that all SBOM external references to other SBOMs done using the bom uri field are non-empty in format.
 
 *Feedback:* 
 
-[DENY] An invalid bom uri external reference to an SBOM has been found in component "(component-purl)"
+[DENY] An empty bom uri external reference to an SBOM has been found in component "(component-purl)"
 
 
-=== 3. cdx_no_sbom_exrefs_found
+=== 3. cdx_sbom_exrefs_used
 
-*Title:* No External SBOM References Found
+*Title:* External SBOM References Used
 
-*Description:* Given an SBOM, there has not been any external references identified.
+*Description:* Given an SBOM, there have been external references identified.
 
 *Feedback:* 
 
