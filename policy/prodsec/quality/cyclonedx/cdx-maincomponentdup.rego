@@ -13,6 +13,8 @@ prerequisite if {
 	is_cdx
 }
 
+_policy_id := "CDX_MAINCOMPONENTDUP"
+
 # METADATA
 # title: Has top purl in components
 # description: Check if the .metadata.component has been duplicated into the components[] array
@@ -27,6 +29,6 @@ deny contains result if {
 	}
 	result := object.union(
 		lib.result_helper(rego.metadata.chain(), [top_purl]),
-		{"policy_id": "CDX_MAINCOMPONENTDUP"},
+		{ "policy_id": _policy_id },
 	)
 }

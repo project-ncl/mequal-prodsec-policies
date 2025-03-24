@@ -2,7 +2,7 @@ package prodsec.util
 
 import rego.v1
 
-default is_cdx_v1_6_and_above := false
-is_cdx_v1_6_and_above if {
-	semver.compare(concat(".", [input.specVersion, "0"]), "1.6.0") <= 0
+# Check if CycloneDX SBOM is equal or above a certain version
+is_cdx_equal_above_version(version) if {
+	semver.compare(concat(".", [input.specVersion, "0"]), concat(".", [version, "0"])) >= 0
 }
