@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM Contains Multiple CPEs
 # description: >-
 #   A CycloneDX SBOM that is version 1.6 and above has the ability to represent multiple CPEs using the metadata.component.cpe field for the main CPE, and the metadata.component.evidence.identity field for its aliases.
+# custom:
+#   short_name: CDX_MULTICPE
+#   severity: Low
 package prodsec.quality.cyclonedx.CDX_MULTICPE
 
 import data.ec.lib

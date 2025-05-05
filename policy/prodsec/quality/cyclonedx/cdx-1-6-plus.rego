@@ -2,6 +2,9 @@
 # title: Teams should use CycloneDX 1.6 and above to use key features
 # description: >-
 #   Teams who are generating am SBOM will benefit from using CycloneDX version 1.6 and above in order to access key features that make it much easier to represent certain information, such as multiple CPEs and PURLs. This policy gives informational feedback on the advantages of using version CycloneDX 1.6 and above.
+# custom:
+#   short_name: CDX_1_6_PLUS
+#   severity: Normal
 package prodsec.quality.cyclonedx.CDX_1_6_PLUS
 
 import data.ec.lib

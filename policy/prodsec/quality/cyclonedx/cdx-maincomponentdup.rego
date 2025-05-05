@@ -2,6 +2,9 @@
 # title: CDX_MAINCOMPONENTDUP
 # description: >-
 #   ProdSec use-cases policy 1. Check if top component is duplicated into the components array in a CycloneDX SBOM.
+# custom:
+#   short_name: CDX_MAINCOMPONENTDUP
+#   severity: High
 package prodsec.quality.cyclonedx.CDX_MAINCOMPONENTDUP
 
 import data.ec.lib

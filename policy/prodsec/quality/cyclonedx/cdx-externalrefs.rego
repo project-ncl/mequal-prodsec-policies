@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM Makes Valid External References to other SBOMs
 # description: >-
 #   When teams produce an SBOM for their product, they will most likely NOT be putting all transitive layers into a single SBOM. This policy would ensure that the references to external SBOMs made are defined using the correct fields and are syntactically correct. Making sure that these references are correctly written is crucial for the relationships to accurately make it into TPA.
+# custom:
+#   short_name: CDX_EXTERNALREFS
+#   severity: High
 package prodsec.quality.cyclonedx.CDX_EXTERNALREFS
 
 import data.ec.lib

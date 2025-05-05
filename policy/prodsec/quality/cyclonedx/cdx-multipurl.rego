@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM Contains Multiple PURLs
 # description: >-
 #   A CycloneDX SBOM that is version 1.6 and above has the ability to represent multiple PURLs using .purl field for the main PURL, and the .evidence.identity field for its aliases.
+# custom:
+#   short_name: CDX_MULTIPURL
+#   severity: Low
 package prodsec.quality.cyclonedx.CDX_MULTIPURL
 
 import data.ec.lib

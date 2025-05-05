@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM Uses Provides Field
 # description: >-
 #   Using the dependencies section of a CycloneDX SBOM, the provides field can be used to specify what specification a certain component implements, or additionally can represent source-to-binary relationships.
+# custom:
+#   short_name: CDX_PROVIDES
+#   severity: Normal
 package prodsec.quality.cyclonedx.CDX_PROVIDES
 
 import data.ec.lib

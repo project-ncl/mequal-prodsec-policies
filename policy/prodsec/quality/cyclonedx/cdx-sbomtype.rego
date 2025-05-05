@@ -2,6 +2,9 @@
 # title: Specify the SBOM Type in CycloneDX
 # description: >-
 #   Teams who are generating an SBOM should define the type of SBOM it is. This can be done using the .metadata.lifecycles field. This policy ensures that different policies can be applied to different SBOM types. This also gives Mequal the option the opportunity to do SBOM evaluation in specific specialized contexts in the future.
+# custom:
+#   short_name: CDX_SBOMTYPE
+#   severity: Normal
 package prodsec.quality.cyclonedx.CDX_SBOMTYPE
 
 import data.ec.lib

@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM Uses Ancestors Field
 # description: >-
 #   Using the pedigree.ancestors field of a component inside of a CycloneDX SBOM, teams can denote the upstream of a component in the SBOMs they generate. Supported by Trustify.
+# custom:
+#   short_name: CDX_ANCESTORS
+#   severity: Normal
 package prodsec.quality.cyclonedx.CDX_ANCESTORS
 
 import data.ec.lib

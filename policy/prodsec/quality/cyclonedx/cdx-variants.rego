@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM Uses Variants Field
 # description: >-
 #   Using the pedigree.variants field of a component inside of a CycloneDX SBOM, teams can represent the relationship of the image index container to their respective architectural variants in the CycloneDX SBOMs they generate. Supported by Trustify.
+# custom:
+#   short_name: CDX_VARIANTS
+#   severity: Normal
 package prodsec.quality.cyclonedx.CDX_VARIANTS
 
 import data.ec.lib

@@ -2,6 +2,9 @@
 # title: CycloneDX SBOM has a Main CPE
 # description: >-
 #   An SBOM can have a CPE field that ties it a product.
+# custom:
+#   short_name: CDX_CPE
+#   severity: Normal
 package prodsec.quality.cyclonedx.CDX_CPE
 
 import data.ec.lib
