@@ -4,7 +4,7 @@
 #   When teams produce an SBOM for their product, they will most likely NOT be putting all transitive layers into a single SBOM. This policy would ensure that the references to external SBOMs made are defined using the correct fields and are syntactically correct. Making sure that these references are correctly written is crucial for the relationships to accurately make it into TPA.
 # custom:
 #   short_name: CDX_EXTERNALREFS
-#   severity: High
+#   severity: error
 package prodsec.quality.cyclonedx.CDX_EXTERNALREFS
 
 import data.ec.lib
@@ -26,6 +26,7 @@ _policy_id := "CDX_EXTERNALREFS"
 # custom:
 #   short_name: cdx_all_sbom_exrefs_valid_bomlink
 #   failure_msg: An invalid Bomlink external reference to an SBOM has been found in component purls %s
+#   severity: error
 deny contains result if {
 	prerequisite
 	is_cdx_equal_above_version("1.5") # additional prerequisite for this rule since bomlink support starts from v1.5
@@ -53,6 +54,7 @@ component_bomrefs_with_invalid_bomlink_references contains result if {
 # custom:
 #   short_name: cdx_all_sbom_exrefs_nonempty_bomuri
 #   failure_msg: An empty bom uri external reference to an SBOM has been found in component purls %s
+#   severity: error
 deny contains result if {
 	prerequisite
 	count(component_bomrefs_with_empty_bom_uri_references) > 0
@@ -75,7 +77,8 @@ component_bomrefs_with_empty_bom_uri_references contains result if {
 # custom:
 #   short_name: cdx_sbom_exrefs_used
 #   failure_msg: TIP == No external SBOM references have been found in this SBOM. Referencing other SBOMs are possible with the bom uri field, or using the Bomlink method if SBOM is CycloneDX 1.5 or higher.
-guide contains result if {
+#   severity: tip
+deny contains result if {
 	prerequisite
 	count(components_with_bom_references) == 0
 	result := object.union(

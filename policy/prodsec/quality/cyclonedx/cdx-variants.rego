@@ -4,7 +4,7 @@
 #   Using the pedigree.variants field of a component inside of a CycloneDX SBOM, teams can represent the relationship of the image index container to their respective architectural variants in the CycloneDX SBOMs they generate. Supported by Trustify.
 # custom:
 #   short_name: CDX_VARIANTS
-#   severity: Normal
+#   severity: tip
 package prodsec.quality.cyclonedx.CDX_VARIANTS
 
 import data.ec.lib
@@ -26,7 +26,8 @@ _policy_id := "CDX_VARIANTS"
 # custom:
 #   short_name: cdx_variants_field_is_used
 #   failure_msg: TIP == In this SBOM, the pedigree.variants relationships have not been utilized. This field can represent the relationship of the image index container to their respective architectural variants in the CycloneDX SBOMs they generate. This field is supported for Trustify SBOM ingestion.
-guide contains result if {
+#   severity: tip
+deny contains result if {
 	prerequisite
 	count(variant_components) == 0
 	result := object.union(

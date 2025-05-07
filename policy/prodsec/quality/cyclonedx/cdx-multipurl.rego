@@ -4,7 +4,7 @@
 #   A CycloneDX SBOM that is version 1.6 and above has the ability to represent multiple PURLs using .purl field for the main PURL, and the .evidence.identity field for its aliases.
 # custom:
 #   short_name: CDX_MULTIPURL
-#   severity: Low
+#   severity: tip
 package prodsec.quality.cyclonedx.CDX_MULTIPURL
 
 import data.ec.lib
@@ -28,7 +28,8 @@ _policy_id := "CDX_MULTIPURL"
 # custom:
 #   short_name: cdx_contains_multipurl_example
 #   failure_msg: TIP == This SBOM has been found to be CycloneDX v1.6 and above, and supports representing multiple PURLs using the .purl field as the main PURL and the .evidence.identity field to provide additional aliases of it. This method of PURL representation is also supported for Trustify SBOM ingestion.
-guide contains result if {
+#   severity: tip
+deny contains result if {
 	prerequisite
 	example_snippet := { 
                 "bom-ref": "example",

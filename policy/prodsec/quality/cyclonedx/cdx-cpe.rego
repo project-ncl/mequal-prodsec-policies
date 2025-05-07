@@ -4,7 +4,7 @@
 #   An SBOM can have a CPE field that ties it a product.
 # custom:
 #   short_name: CDX_CPE
-#   severity: Normal
+#   severity: tip
 package prodsec.quality.cyclonedx.CDX_CPE
 
 import data.ec.lib
@@ -25,7 +25,8 @@ _policy_id := "CDX_CPE"
 # custom:
 #   short_name: cdx_main_component_has_cpe
 #   failure_msg: TIP == If this a product-level SBOM, it is advised to define a CPE in .metadata.component.cpe field to directly tie it to that product. If this is a component-level SBOM please disregard this tip.
-guide contains result if {
+#   severity: tip
+deny contains result if {
 	# violating condition of the policy
 	prerequisite
 	not input.metadata.component.cpe

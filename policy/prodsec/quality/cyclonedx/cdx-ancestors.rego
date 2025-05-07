@@ -4,7 +4,7 @@
 #   Using the pedigree.ancestors field of a component inside of a CycloneDX SBOM, teams can denote the upstream of a component in the SBOMs they generate. Supported by Trustify.
 # custom:
 #   short_name: CDX_ANCESTORS
-#   severity: Normal
+#   severity: tip
 package prodsec.quality.cyclonedx.CDX_ANCESTORS
 
 import data.ec.lib
@@ -25,7 +25,8 @@ _policy_id := "CDX_ANCESTORS"
 # custom:
 #   short_name: cdx_ancestors_field_is_used
 #   failure_msg: TIP == In this SBOM, the pedigree.ancestors relationships have not been utilized. This field can denote the upstream of a component. This field is supported for Trustify SBOM ingestion.
-guide contains result if {
+#   severity: tip
+deny contains result if {
 	prerequisite
 	# violating condition of the policy (no ancestor components found in the sbom)
 	count(ancestor_components) == 0

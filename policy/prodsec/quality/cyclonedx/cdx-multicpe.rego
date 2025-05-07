@@ -4,7 +4,7 @@
 #   A CycloneDX SBOM that is version 1.6 and above has the ability to represent multiple CPEs using the metadata.component.cpe field for the main CPE, and the metadata.component.evidence.identity field for its aliases.
 # custom:
 #   short_name: CDX_MULTICPE
-#   severity: Low
+#   severity: tip
 package prodsec.quality.cyclonedx.CDX_MULTICPE
 
 import data.ec.lib
@@ -28,7 +28,8 @@ _policy_id := "CDX_MULTICPE"
 # custom:
 #   short_name: cdx_contains_multicpe_example
 #   failure_msg: TIP == This SBOM includes a main CPE and has been found to be CycloneDX v1.6 and above and supports representing multiple CPEs using the .cpe field as the main CPE and the .evidence.identity field to provide additional aliases of it. This method of CPE representation is also supported for Trustify SBOM ingestion.
-guide contains result if {
+#   severity: tip
+deny contains result if {
 	prerequisite
 	example_snippet := { 
                 "bom-ref": "example",

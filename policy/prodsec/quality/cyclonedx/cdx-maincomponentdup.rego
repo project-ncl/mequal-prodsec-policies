@@ -4,7 +4,7 @@
 #   ProdSec use-cases policy 1. Check if top component is duplicated into the components array in a CycloneDX SBOM.
 # custom:
 #   short_name: CDX_MAINCOMPONENTDUP
-#   severity: High
+#   severity: error
 package prodsec.quality.cyclonedx.CDX_MAINCOMPONENTDUP
 
 import data.ec.lib
@@ -24,6 +24,7 @@ _policy_id := "CDX_MAINCOMPONENTDUP"
 # custom:
 #   short_name: cdx_top_purl_in_components
 #   failure_msg: CycloneDX SBOM top-purl does not have a duplicate in the components array for top-purl '%s'
+#   severity: error
 deny contains result if {
 	prerequisite
 	top_purl := input.metadata.component.purl
