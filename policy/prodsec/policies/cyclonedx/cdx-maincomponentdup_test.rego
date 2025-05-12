@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_MAINCOMPONENTDUP_test
+package prodsec.policies.cyclonedx.CDX_MAINCOMPONENTDUP_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_MAINCOMPONENTDUP
+import data.prodsec.policies.cyclonedx.CDX_MAINCOMPONENTDUP
 import rego.v1
 
-_rule_cdx_top_purl_in_components := "prodsec.quality.cyclonedx.CDX_MAINCOMPONENTDUP.cdx_top_purl_in_components"
+_rule_cdx_top_purl_in_components := "prodsec.policies.cyclonedx.CDX_MAINCOMPONENTDUP.cdx_top_purl_in_components"
 
 # Prerequisites
 

@@ -1,14 +1,14 @@
-package prodsec.quality.cyclonedx.CDX_EXTERNALREFS_test
+package prodsec.policies.cyclonedx.CDX_EXTERNALREFS_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_EXTERNALREFS
+import data.prodsec.policies.cyclonedx.CDX_EXTERNALREFS
 import rego.v1
 
-_rule_cdx_all_sbom_exrefs_valid_bomlink := "prodsec.quality.cyclonedx.CDX_EXTERNALREFS.cdx_all_sbom_exrefs_valid_bomlink"
-_rule_cdx_all_sbom_exrefs_nonempty_bomuri := "prodsec.quality.cyclonedx.CDX_EXTERNALREFS.cdx_all_sbom_exrefs_nonempty_bomuri"
-_rule_cdx_sbom_exrefs_used := "prodsec.quality.cyclonedx.CDX_EXTERNALREFS.cdx_sbom_exrefs_used"
+_rule_cdx_all_sbom_exrefs_valid_bomlink := "prodsec.policies.cyclonedx.CDX_EXTERNALREFS.cdx_all_sbom_exrefs_valid_bomlink"
+_rule_cdx_all_sbom_exrefs_nonempty_bomuri := "prodsec.policies.cyclonedx.CDX_EXTERNALREFS.cdx_all_sbom_exrefs_nonempty_bomuri"
+_rule_cdx_sbom_exrefs_used := "prodsec.policies.cyclonedx.CDX_EXTERNALREFS.cdx_sbom_exrefs_used"
 
 # Prerequisites
 

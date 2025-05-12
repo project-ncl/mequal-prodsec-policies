@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_MAINCOMPONENTDUP
 #   severity: error
-package prodsec.quality.cyclonedx.CDX_MAINCOMPONENTDUP
+package prodsec.policies.cyclonedx.CDX_MAINCOMPONENTDUP
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_MULTICPE
 #   severity: tip
-package prodsec.quality.cyclonedx.CDX_MULTICPE
+package prodsec.policies.cyclonedx.CDX_MULTICPE
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

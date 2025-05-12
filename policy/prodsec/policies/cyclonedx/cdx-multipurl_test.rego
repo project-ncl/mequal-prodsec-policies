@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_MULTIPURL_test
+package prodsec.policies.cyclonedx.CDX_MULTIPURL_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_MULTIPURL
+import data.prodsec.policies.cyclonedx.CDX_MULTIPURL
 import rego.v1
 
-_rule_cdx_contains_multipurl_example := "prodsec.quality.cyclonedx.CDX_MULTIPURL.cdx_contains_multipurl_example"
+_rule_cdx_contains_multipurl_example := "prodsec.policies.cyclonedx.CDX_MULTIPURL.cdx_contains_multipurl_example"
 
 # Prerequisites
 

@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_MULTICPE_test
+package prodsec.policies.cyclonedx.CDX_MULTICPE_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_MULTICPE
+import data.prodsec.policies.cyclonedx.CDX_MULTICPE
 import rego.v1
 
-_rule_cdx_contains_multicpe_example := "prodsec.quality.cyclonedx.CDX_MULTICPE.cdx_contains_multicpe_example"
+_rule_cdx_contains_multicpe_example := "prodsec.policies.cyclonedx.CDX_MULTICPE.cdx_contains_multicpe_example"
 
 # Prerequisites
 

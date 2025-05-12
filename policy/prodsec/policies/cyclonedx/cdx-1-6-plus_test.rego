@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_1_6_PLUS_test
+package prodsec.policies.cyclonedx.CDX_1_6_PLUS_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_1_6_PLUS
+import data.prodsec.policies.cyclonedx.CDX_1_6_PLUS
 import rego.v1
 
-_rule_cdx_sbom_is_cdx_1_6_and_above := "prodsec.quality.cyclonedx.CDX_1_6_PLUS.cdx_sbom_is_cdx_1_6_and_above"
+_rule_cdx_sbom_is_cdx_1_6_and_above := "prodsec.policies.cyclonedx.CDX_1_6_PLUS.cdx_sbom_is_cdx_1_6_and_above"
 
 # Prerequisites
 

@@ -1,16 +1,23 @@
 package prodsec.main
 
-import data.prodsec.quality
+import data.prodsec.policies
 import data.ec.lib.is_cdx
+import data.prodsec.summary
 import rego.v1
 
-prodsec_quality_guidance contains result if {
-	result := quality[_][_].guide[_]
-}
-
 prodsec_quality_violations contains result if {
-	result := quality[_][_].deny[_]
+	eval := policies[_][_].deny[_]
+	result := eval_object(
+		eval.policy_id,
+		eval.code,
+		eval.msg
+	)
 }
 
-# cdx_variant_components_list := quality.cyclonedx.CDX_VARIANTS.variant_components
-# cdx_ancestor_components_list := quality.cyclonedx.CDX_ANCESTORS.ancestor_components
+eval_object(policy_id, rule_id, message) := x if {
+	x:= {
+		"policy_id": policy_id,
+		"rule_id": rule_id,
+		"message": message,
+	}
+}

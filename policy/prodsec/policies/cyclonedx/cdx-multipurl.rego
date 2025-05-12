@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_MULTIPURL
 #   severity: tip
-package prodsec.quality.cyclonedx.CDX_MULTIPURL
+package prodsec.policies.cyclonedx.CDX_MULTIPURL
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

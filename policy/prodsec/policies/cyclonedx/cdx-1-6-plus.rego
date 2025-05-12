@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_1_6_PLUS
 #   severity: tip
-package prodsec.quality.cyclonedx.CDX_1_6_PLUS
+package prodsec.policies.cyclonedx.CDX_1_6_PLUS
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_PROVIDES_test
+package prodsec.policies.cyclonedx.CDX_PROVIDES_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_PROVIDES
+import data.prodsec.policies.cyclonedx.CDX_PROVIDES
 import rego.v1
 
-_rule_cdx_provides_field_is_used := "prodsec.quality.cyclonedx.CDX_PROVIDES.cdx_provides_field_is_used"
+_rule_cdx_provides_field_is_used := "prodsec.policies.cyclonedx.CDX_PROVIDES.cdx_provides_field_is_used"
 
 # Prerequisites
 

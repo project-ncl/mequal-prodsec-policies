@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_ANCESTORS
 #   severity: tip
-package prodsec.quality.cyclonedx.CDX_ANCESTORS
+package prodsec.policies.cyclonedx.CDX_ANCESTORS
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

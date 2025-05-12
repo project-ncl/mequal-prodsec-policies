@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_EXTERNALREFS
 #   severity: error
-package prodsec.quality.cyclonedx.CDX_EXTERNALREFS
+package prodsec.policies.cyclonedx.CDX_EXTERNALREFS
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

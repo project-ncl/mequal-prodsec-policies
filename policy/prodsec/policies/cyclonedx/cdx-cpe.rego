@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_CPE
 #   severity: tip
-package prodsec.quality.cyclonedx.CDX_CPE
+package prodsec.policies.cyclonedx.CDX_CPE
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_ANCESTORS_test
+package prodsec.policies.cyclonedx.CDX_ANCESTORS_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_ANCESTORS
+import data.prodsec.policies.cyclonedx.CDX_ANCESTORS
 import rego.v1
 
-_rule_cdx_ancestors_field_is_used := "prodsec.quality.cyclonedx.CDX_ANCESTORS.cdx_ancestors_field_is_used"
+_rule_cdx_ancestors_field_is_used := "prodsec.policies.cyclonedx.CDX_ANCESTORS.cdx_ancestors_field_is_used"
 
 # Prerequisites
 

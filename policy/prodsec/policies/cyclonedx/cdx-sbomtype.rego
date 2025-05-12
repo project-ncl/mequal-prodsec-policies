@@ -5,7 +5,7 @@
 # custom:
 #   short_name: CDX_SBOMTYPE
 #   severity: warning
-package prodsec.quality.cyclonedx.CDX_SBOMTYPE
+package prodsec.policies.cyclonedx.CDX_SBOMTYPE
 
 import data.ec.lib
 import data.ec.lib.util.is_cdx

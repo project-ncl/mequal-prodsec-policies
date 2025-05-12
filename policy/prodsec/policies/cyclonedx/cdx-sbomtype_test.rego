@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_SBOMTYPE_test
+package prodsec.policies.cyclonedx.CDX_SBOMTYPE_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_SBOMTYPE
+import data.prodsec.policies.cyclonedx.CDX_SBOMTYPE
 import rego.v1
 
-_rule_cdx_metadata_lifecycles_exists := "prodsec.quality.cyclonedx.CDX_SBOMTYPE.cdx_metadata_lifecycles_exists"
+_rule_cdx_metadata_lifecycles_exists := "prodsec.policies.cyclonedx.CDX_SBOMTYPE.cdx_metadata_lifecycles_exists"
 
 # Prerequisites
 

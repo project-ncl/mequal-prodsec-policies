@@ -1,12 +1,12 @@
-package prodsec.quality.cyclonedx.CDX_CPE_test
+package prodsec.policies.cyclonedx.CDX_CPE_test
 
 import data.ec.lib
 import data.ec.lib.util.assert_passes_rules
 import data.ec.lib.util.assert_violates_rules
-import data.prodsec.quality.cyclonedx.CDX_CPE
+import data.prodsec.policies.cyclonedx.CDX_CPE
 import rego.v1
 
-_rule_cdx_main_component_has_cpe := "prodsec.quality.cyclonedx.CDX_CPE.cdx_main_component_has_cpe"
+_rule_cdx_main_component_has_cpe := "prodsec.policies.cyclonedx.CDX_CPE.cdx_main_component_has_cpe"
 
 # Prerequisites
 
