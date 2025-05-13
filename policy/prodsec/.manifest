@@ -1,4 +1,7 @@
 {
     "revision": "v1.0.0",
-    "roots": ["prodsec"]
+    "roots": ["prodsec"],
+    "metadata": {
+        "source": "https://github.com/project-ncl/mequal-prodsec-policies"
+    }
 }
